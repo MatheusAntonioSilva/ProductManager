@@ -24,7 +24,7 @@ namespace ProductManager.Controllers
         // GET: User/Details/5
         public ActionResult Details(int id)
         {
-            return View(listInUser[id]);
+            return View(listInUser.FirstOrDefault(x => x.id == id ));
         }
 
         // GET: User/Create
@@ -53,17 +53,36 @@ namespace ProductManager.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var user = listInUser.FirstOrDefault(x => x.id == id);
+            return View(user);
         }
 
         // POST: User/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, [Bind("id, nome, cpf, email")] User user)
         {
             try
             {
-                // TODO: Add update logic here
+                if(id != user.id)
+                {
+                    return NotFound();
+                }
+                if(ModelState.IsValid)
+                {
+                    var userTemp = listInUser.FirstOrDefault(x => x.id == id);
+                    if(userTemp != null)
+                    {
+                        userTemp.id = user.id;
+                        userTemp.nome = user.nome;
+                        userTemp.cpf = user.cpf;
+                        userTemp.email = user.email;
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
 
                 return RedirectToAction(nameof(Index));
             }
@@ -76,7 +95,8 @@ namespace ProductManager.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var user = listInUser.FirstOrDefault(x => x.id == id);
+            return View(user);
         }
 
         // POST: User/Delete/5
@@ -86,8 +106,8 @@ namespace ProductManager.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
-
+                var user = listInUser.FirstOrDefault(x => x.id == id);
+                listInUser.Remove(user);
                 return RedirectToAction(nameof(Index));
             }
             catch

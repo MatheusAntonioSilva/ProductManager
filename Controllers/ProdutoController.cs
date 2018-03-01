@@ -26,7 +26,7 @@ namespace ProductManager.Controllers
         // GET: Produto/Details/5
         public ActionResult Details(int id)
         {
-            return View(listaDeProdutos.Where(x => x.id == id));
+            return View(listaDeProdutos.FirstOrDefault(x => x.id == id));
         }
 
         // GET: Produto/Create
@@ -55,18 +55,32 @@ namespace ProductManager.Controllers
         // GET: Produto/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var produto = listaDeProdutos.FirstOrDefault(x => x.id == id);
+            return View(produto);
         }
 
         // POST: Produto/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, [Bind("id, nome, categoria, preco")] Produto produto)
         {
             try
             {
-                // TODO: Add update logic here
-
+               if(id != produto.id)
+                {
+                    return NotFound();
+                }
+               if (ModelState.IsValid)
+                {
+                    var produtoTemp = listaDeProdutos.FirstOrDefault(x => x.id == id);
+                    if(produtoTemp != null)
+                    {
+                        produtoTemp.categoria = produto.categoria;
+                        produtoTemp.nome = produto.nome;
+                        produtoTemp.preco = produto.preco;
+                        produtoTemp.id = produto.id;
+                    }
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -78,7 +92,8 @@ namespace ProductManager.Controllers
         // GET: Produto/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var produto = listaDeProdutos.FirstOrDefault(x => x.id == id);
+            return View(produto);
         }
 
         // POST: Produto/Delete/5
@@ -88,7 +103,9 @@ namespace ProductManager.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                
+                var produto = listaDeProdutos.FirstOrDefault(x => x.id == id);
+                listaDeProdutos.Remove(produto);
 
                 return RedirectToAction(nameof(Index));
             }

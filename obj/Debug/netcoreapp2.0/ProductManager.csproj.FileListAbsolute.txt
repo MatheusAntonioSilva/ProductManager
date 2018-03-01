@@ -20,3 +20,14 @@ C:\Users\Lab\Documents\ProductManager\obj\Debug\netcoreapp2.0\ProductManager.Ass
 C:\Users\Lab\Documents\ProductManager\obj\Debug\netcoreapp2.0\ProductManager.AssemblyInfo.cs
 C:\Users\Lab\Documents\ProductManager\obj\Debug\netcoreapp2.0\ProductManager.dll
 C:\Users\Lab\Documents\ProductManager\obj\Debug\netcoreapp2.0\ProductManager.pdb
+C:\Users\Lab04\Downloads\ProductManager-master\bin\Debug\netcoreapp2.0\ProductManager.deps.json
+C:\Users\Lab04\Downloads\ProductManager-master\bin\Debug\netcoreapp2.0\ProductManager.runtimeconfig.json
+C:\Users\Lab04\Downloads\ProductManager-master\bin\Debug\netcoreapp2.0\ProductManager.runtimeconfig.dev.json
+C:\Users\Lab04\Downloads\ProductManager-master\bin\Debug\netcoreapp2.0\ProductManager.dll
+C:\Users\Lab04\Downloads\ProductManager-master\bin\Debug\netcoreapp2.0\ProductManager.pdb
+C:\Users\Lab04\Downloads\ProductManager-master\obj\Debug\netcoreapp2.0\ProductManager.csprojResolveAssemblyReference.cache
+C:\Users\Lab04\Downloads\ProductManager-master\obj\Debug\netcoreapp2.0\ProductManager.csproj.CoreCompileInputs.cache
+C:\Users\Lab04\Downloads\ProductManager-master\obj\Debug\netcoreapp2.0\ProductManager.AssemblyInfoInputs.cache
+C:\Users\Lab04\Downloads\ProductManager-master\obj\Debug\netcoreapp2.0\ProductManager.AssemblyInfo.cs
+C:\Users\Lab04\Downloads\ProductManager-master\obj\Debug\netcoreapp2.0\ProductManager.dll
+C:\Users\Lab04\Downloads\ProductManager-master\obj\Debug\netcoreapp2.0\ProductManager.pdb
